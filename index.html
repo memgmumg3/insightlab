@@ -811,6 +811,63 @@ footer{background:var(--ink);padding:80px 6% 40px}
 .pm-bg-3{background-image:url("/insightlab/program_bg_3.jpg");background-size:cover;background-position:center top}
 .pm-bg-4{background-image:url("/insightlab/program_bg_4.jpg");background-size:cover;background-position:center top}
 .pm-bg-5{background-image:url("/insightlab/program_bg_5.jpg");background-size:cover;background-position:center top}
+
+.reviews-grid{grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr}
+.flex-row-instructor{flex-direction:row;align-items:flex-end}
+/* ── MOBILE OPTIMIZATION ── */
+@media(max-width:768px){
+
+  /* HERO */
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:100px 6% 60px;min-height:60vh}
+  .hero-right{display:none}
+
+  /* ABOUT TOP */
+  .about-top{grid-template-columns:1fr}
+
+  /* INSIGHT LIST */
+  .il-item{grid-template-columns:40px 1fr;gap:12px}
+  .il-desc{display:none}
+  .il-title{font-size:20px}
+
+  /* INSTRUCTOR */
+  .flex-row-instructor{flex-direction:column!important;gap:32px!important;align-items:flex-start!important}
+
+  /* REVIEWS */
+  .reviews-grid{grid-template-columns:1fr!important}
+
+  /* PARTNERS MARQUEE */
+  .marquee-track{gap:32px}
+
+  /* NAV */
+  nav{padding:0 5%}
+}
+
+@media(max-width:480px){
+  .hero-left{padding:80px 5% 48px}
+  .il-letter{font-size:32px}
+}
+
+@media(max-width:768px){
+  /* ABOUT BUILDING */
+  .about-building{height:280px!important}
+
+  /* INSTRUCTOR 이미지 */
+  #instructor img{width:100%!important;height:auto!important}
+  #instructor .instr-photo-wrap{width:100%!important;max-width:300px}
+
+  /* 섹션 패딩 줄이기 */
+  #about > div:first-child{padding:80px 6% 60px!important}
+  #instructor > div{padding:0 6%!important}
+  #programs{padding:80px 0!important}
+  #field .field-head{padding:0 6%!important}
+
+  /* CONTACT 섹션 */
+  .contact{padding:60px 6%!important}
+
+  /* 후기 섹션 패딩 */
+  #instructor + section{padding:60px 0!important}
+}
 </style>
 </head>
 <body>
@@ -1259,7 +1316,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
     <div style="font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;display:flex;align-items:center;gap:10px"><span style="width:20px;height:1px;background:var(--muted);display:inline-block"></span>Voice of Clients</div>
     <h2 style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(28px,4vw,42px);font-weight:400;color:var(--ink);margin:0">수강생 후기</h2>
   </div>
-  <div style="max-width:1200px;margin:0 auto;padding:0 8%;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:16px;align-items:stretch">
+  <div class="reviews-grid" style="max-width:1200px;margin:0 auto;padding:0 8%;display:grid;gap:16px;align-items:stretch">
     <div style="background:var(--white);padding:28px;border:1px solid var(--border);display:flex;flex-direction:column;height:100%">
       <div style="font-family:'Playfair Display',serif;font-size:36px;color:var(--blue);opacity:.15;line-height:1;margin-bottom:12px">"</div>
       <p style="font-family:'Noto Sans KR',sans-serif;font-size:14px;font-weight:300;color:var(--ink2);line-height:1.8;margin:0;flex:1">뻔한 교육이 아닌 새로운 경험을 제공하는 교육이었습니다.</p>
@@ -1314,7 +1371,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
 <!-- INSTRUCTOR -->
 <section id="instructor" style="padding:100px 0;background:#F5F2EC;width:100%">
   <div style="max-width:1200px;margin:0 auto;padding:0 10%">
-    <div style="display:flex;flex-direction:row;gap:64px;align-items:flex-end;margin-bottom:48px">
+    <div style="class="flex-row-instructor" style="display:flex;gap:64px;margin-bottom:48px">
       <div style="flex-shrink:0;position:relative">
         <div style="position:absolute;top:14px;left:14px;width:260px;height:340px;border:1px solid #13120F;border-radius:6px;opacity:.15;z-index:0"></div>
         <div style="width:260px;height:340px;border-radius:6px;overflow:hidden;position:relative;z-index:1;box-shadow:0 20px 50px rgba(0,0,0,.12)">
