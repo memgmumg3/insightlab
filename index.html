@@ -739,7 +739,19 @@ footer{background:var(--ink);padding:80px 6% 40px}
 @keyframes fieldScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .btn-ink-dark{font-family:"DM Sans","Noto Sans KR",sans-serif;font-size:14px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--ink);background:transparent;border:2px solid var(--ink);padding:16px 40px;text-decoration:none;transition:all .3s}
 .btn-ink-dark:hover{background:var(--ink);color:var(--cream)}
-.about-building{background-image:url("images/about_building.jpg");background-size:cover;background-position:center}
+.about-building{position:relative;background:#13120F;overflow:hidden}
+.about-img-hand{position:absolute;inset:0;background-image:url("images/about_hand.jpg");background-size:cover;background-position:center;z-index:1}
+.about-img-bulb{position:absolute;inset:0;background-image:url("images/about_bulb.jpg");background-size:cover;background-position:center;z-index:2;
+  clip-path:polygon(100% 100%,100% 100%,100% 100%);
+  transition:none}
+.about-img-bulb.reveal{animation:peelReveal 2.2s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes peelReveal{
+  0%  {clip-path:polygon(100% 100%,100% 100%,100% 100%);opacity:.0}
+  5%  {opacity:1}
+  40% {clip-path:polygon(100% 100%,100% 0%,  55%  0%,  0% 100%)}
+  70% {clip-path:polygon(100% 100%,100% 0%,  0%   0%,  0% 55%)}
+  100%{clip-path:polygon(100% 100%,100% 0%,  0%   0%,  0% 0%)}
+}
 
 .book-cover-1{background-image:url("images/book_cover_1.jpg")}
 .book-cover-2{background-image:url("images/book_cover_2.jpg")}
@@ -877,8 +889,10 @@ footer{background:var(--ink);padding:80px 6% 40px}
     <div style="width:48px;height:1px;background:rgba(255,255,255,.2);margin:40px 0"></div>
     <p style="font-family:'Noto Sans KR',sans-serif;font-size:18px;font-weight:300;color:rgba(255,255,255,.7);line-height:2;margin:0;max-width:680px">Insight Lab은 <strong style="color:rgba(255,255,255,.9)">'교육'이라는 이름으로 익숙한 방식만 반복하는 교육</strong>에 질문을 던집니다.<br>왜 우리는 알면서도 바뀌지 않을까? 왜 조직은 같은 문제를 반복할까?<br>우리는 그 답을 지식이 아닌 <em style="color:#7BAAF7">'인식의 전환'</em>에서 찾습니다.</p>
   </div>
-  <div class="about-building" style="position:relative;height:520px;overflow:hidden">
-    <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(19,18,15,.75));padding:28px 8%;font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:2px;color:rgba(255,255,255,.9)">기업 · 공공기관 맞춤형 교육 · 컨설팅</div>
+  <div class="about-building" style="height:520px;" id="about-building-wrap">
+    <div class="about-img-hand"></div>
+    <div class="about-img-bulb" id="about-bulb"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(19,18,15,.75));padding:28px 8%;font-family:'Noto Sans KR',sans-serif;font-size:15px;letter-spacing:2px;color:rgba(255,255,255,.9);z-index:10">기업 · 공공기관 맞춤형 교육 · 컨설팅</div>
   </div>
   <div style="background:#F5F2EC;padding:32px 8%;display:flex;gap:16px;flex-wrap:wrap">
     <a href="#programs" style="font-family:'DM Sans','Noto Sans KR',sans-serif;font-size:14px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:#fff;background:#2B5EC7;border:2px solid #2B5EC7;padding:16px 44px;text-decoration:none">프로그램 보기</a>
@@ -1768,6 +1782,23 @@ window.addEventListener("load", function() {
     POSTS=fallback();renderPosts("all");
   }
   loadRSS();
+
+  /* ABOUT BUILDING PEEL ANIMATION */
+  (function(){
+    var bulb = document.getElementById("about-bulb");
+    if(!bulb) return;
+    var triggered = false;
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting && !triggered){
+          triggered = true;
+          setTimeout(function(){ bulb.classList.add("reveal"); }, 300);
+          obs.disconnect();
+        }
+      });
+    }, {threshold: 0.3});
+    obs.observe(document.getElementById("about-building-wrap"));
+  })();
 });
 </script>
 </body>
