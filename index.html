@@ -741,14 +741,14 @@ footer{background:var(--ink);padding:80px 6% 40px}
 .btn-ink-dark:hover{background:var(--ink);color:var(--cream)}
 .about-building{position:relative;background:#13120F;overflow:hidden}
 .about-img-hand{position:absolute;inset:0;background-image:url("/insightlab/about_hand.jpg");background-size:cover;background-position:center;z-index:1}
-.about-img-bulb{position:absolute;inset:0;background-image:url("/insightlab/about_bulb.jpg");background-size:cover;background-position:center;z-index:2;clip-path:polygon(100% 100%,100% 100%,100% 100%);transition:none}
-.about-img-bulb.reveal{animation:peelReveal 2.2s cubic-bezier(.4,0,.2,1) forwards}
+.about-img-bulb{position:absolute;inset:0;background-image:url("/insightlab/about_bulb.jpg");background-size:cover;background-position:center;z-index:2;clip-path:polygon(100% 100%,100% 100%,100% 100%);opacity:0}
+.about-img-bulb.reveal{animation:peelReveal 2.6s cubic-bezier(.4,0,.2,1) forwards}
 @keyframes peelReveal{
-  0%{clip-path:polygon(100% 100%,100% 100%,100% 100%);opacity:0}
-  5%{opacity:1}
-  40%{clip-path:polygon(100% 100%,100% 0%,55% 0%,0% 100%)}
-  70%{clip-path:polygon(100% 100%,100% 0%,0% 0%,0% 55%)}
-  100%{clip-path:polygon(100% 100%,100% 0%,0% 0%,0% 0%)}
+  0%  {clip-path:polygon(100% 100%,100% 100%,100% 100%);opacity:0}
+  8%  {opacity:1}
+  50% {clip-path:polygon(120% 120%,120% -20%,40% -20%,-20% 120%)}
+  85% {clip-path:polygon(120% 120%,120% -20%,-20% -20%,-20% 40%)}
+  100%{clip-path:polygon(120% 120%,120% -20%,-20% -20%,-20% 120%);opacity:1}
 }
 
 .book-cover-1{background-image:url("/insightlab/book_cover_1.jpg")}
@@ -1794,7 +1794,7 @@ window.addEventListener("load", function() {
           obs.disconnect();
         }
       });
-    }, {threshold:0.3});
+    }, {threshold:0.25});
     var wrap = document.getElementById("about-building-wrap");
     if(wrap) obs.observe(wrap);
   })();
