@@ -74,10 +74,10 @@ nav{
 }
 nav.solid{background:rgba(245,242,236,.96);backdrop-filter:blur(12px);border-color:var(--border)}
 .nav-links{display:flex;gap:0;list-style:none}
-.nav-links a{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;letter-spacing:.5px;color:var(--muted);text-decoration:none;padding:8px 16px;transition:color .2s;position:relative}
-.nav-links a:hover,.nav-links a.on{color:var(--ink)}
-.nav-links a.on::after{content:'';position:absolute;bottom:6px;left:50%;transform:translateX(-50%);width:14px;height:1px;background:var(--blue)}
-.nav-cta{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue);padding-bottom:1px;transition:opacity .2s}
+.nav-links a{font-family:'DM Sans','Noto Sans KR',sans-serif;font-size:15px;font-weight:400;letter-spacing:.5px;color:var(--muted);text-decoration:none;padding:8px 16px;transition:color .2s;position:relative}
+.nav-links a:hover,.nav-links a.on{color:var(--blue);font-weight:500}
+
+.nav-cta{font-family:"DM Sans","Noto Sans KR",sans-serif;font-size:15px;font-weight:500;letter-spacing:.5px;color:var(--blue);text-decoration:none;padding:8px 16px;transition:color .2s}
 .nav-cta:hover{opacity:.65}
 .ham{display:none;flex-direction:column;gap:4px;cursor:pointer;background:none;border:none}
 .ham span{width:20px;height:1px;background:var(--ink);display:block}
@@ -478,7 +478,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
 .books-head{display:flex;justify-content:space-between;align-items:flex-end;max-width:1200px;margin:0 auto 64px;flex-wrap:wrap;gap:20px}
 .books-h2{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(32px,4.5vw,52px);font-weight:400;color:var(--ink);line-height:1.1}
 .books-sub{font-family:"DM Sans",sans-serif;font-size:13px;font-weight:300;color:var(--muted);max-width:420px;line-height:1.8;margin-top:10px}
-.books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1200px;margin:0 auto}
+.books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
 .book-card{display:flex;flex-direction:column;gap:0;cursor:default;transition:transform .3s}
 .book-card:hover{transform:translateY(-6px)}
 .book-cover{
@@ -644,7 +644,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
 }
 .pd-cta:hover{border-color:var(--blue)}
 @media(max-width:960px){
-  .pi-subtitle{display:none}
+  .pi-subtitle{font-family:"Noto Sans KR",sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,.35);line-height:1.4;margin-top:6px;transition:color .3s;white-space:normal;overflow:visible;text-overflow:unset}
   
   .prog-detail-inner{grid-template-columns:1fr 1fr;padding-left:64px;gap:24px}
 }
@@ -804,6 +804,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
 .prog-list > .prog-item:nth-child(1),
 .prog-list > .prog-item:nth-child(2){border-top:1px solid rgba(255,255,255,.08)}
 
+.pi-title-wrap{flex:1;display:flex;flex-direction:column;gap:0;min-width:0}
 </style>
 </head>
 <body>
@@ -823,7 +824,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
         <span class="logo-l" style="font-size:clamp(50px,10vw,100px);color:var(--white);letter-spacing:6px">Lab</span>
       </div>
     </div>
-    <div class="gate-rule"></div>
+    
     <div class="gate-tagline">우리는 단순히 교육을 하지 않습니다.<br>인식을 전환합니다.</div>
     <div class="gate-tagline-en">We don't teach.<br>We shift perspective.</div>
     <button class="gate-btn" id="gate-btn" onclick="document.getElementById('gate').style.cssText='display:none!important'"><span>Enter</span></button>
@@ -839,7 +840,6 @@ footer{background:var(--ink);padding:80px 6% 40px}
     <span class="logo-l">Lab</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#about" class="on">Home</a></li>
     <li><a href="#about">회사소개</a></li>
     <li><a href="#programs">프로그램</a></li>
     <li><a href="#instructor">강사진</a></li>
@@ -903,8 +903,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
     <div class="prog-item" data-idx="0">
       <div class="prog-item-header">
         <div class="pi-num">01</div>
-        <div class="pi-title">조직활성화</div>
-        <div class="pi-subtitle">건강한 조직 문화를 만드는 핵심 역량</div>
+        <div class="pi-title-wrap"><div class="pi-title">조직활성화</div><div class="pi-subtitle">건강한 조직 문화를 만드는 핵심 역량</div></div>
         <div class="pi-arrow">+</div>
       </div>
     </div>
@@ -912,8 +911,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
     <div class="prog-item" data-idx="1">
       <div class="prog-item-header">
         <div class="pi-num">02</div>
-        <div class="pi-title">온보딩 교육</div>
-        <div class="pi-subtitle">조직 적응을 넘어 즉시 성과를 내는 신입 설계</div>
+        <div class="pi-title-wrap"><div class="pi-title">온보딩 교육</div><div class="pi-subtitle">조직 적응을 넘어 즉시 성과를 내는 신입 설계</div></div>
         <div class="pi-arrow">+</div>
       </div>
     </div>
@@ -921,8 +919,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
     <div class="prog-item" data-idx="2">
       <div class="prog-item-header">
         <div class="pi-num">03</div>
-        <div class="pi-title">리텐션 교육</div>
-        <div class="pi-subtitle">이탈 예방과 몰입도를 높이는 구성원 케어</div>
+        <div class="pi-title-wrap"><div class="pi-title">리텐션 교육</div><div class="pi-subtitle">이탈 예방과 몰입도를 높이는 구성원 케어</div></div>
         <div class="pi-arrow">+</div>
       </div>
     </div>
@@ -930,8 +927,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
     <div class="prog-item" data-idx="3">
       <div class="prog-item-header">
         <div class="pi-num">04</div>
-        <div class="pi-title">디지털 전환 교육</div>
-        <div class="pi-subtitle">AI·디지털 도구 실무 활용 역량 강화</div>
+        <div class="pi-title-wrap"><div class="pi-title">디지털 전환 교육</div><div class="pi-subtitle">AI·디지털 도구 실무 활용 역량 강화</div></div>
         <div class="pi-arrow">+</div>
       </div>
     </div>
@@ -939,8 +935,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
     <div class="prog-item" data-idx="4">
       <div class="prog-item-header">
         <div class="pi-num">05</div>
-        <div class="pi-title">비즈니스 매너 &amp; 커뮤니케이션</div>
-        <div class="pi-subtitle">신뢰를 만드는 말과 글의 힘</div>
+        <div class="pi-title-wrap"><div class="pi-title">비즈니스 매너 &amp; 커뮤니케이션</div><div class="pi-subtitle">신뢰를 만드는 말과 글의 힘</div></div>
         <div class="pi-arrow">+</div>
       </div>
     </div>
@@ -948,8 +943,7 @@ footer{background:var(--ink);padding:80px 6% 40px}
     <div class="prog-item" data-idx="5">
       <div class="prog-item-header">
         <div class="pi-num">06</div>
-        <div class="pi-title">리더십 &amp; 팔로워십</div>
-        <div class="pi-subtitle">영향력으로 이끄는 리더와 능동적 구성원 양성</div>
+        <div class="pi-title-wrap"><div class="pi-title">리더십 &amp; 팔로워십</div><div class="pi-subtitle">영향력으로 이끄는 리더와 능동적 구성원 양성</div></div>
         <div class="pi-arrow">+</div>
       </div>
     </div>
@@ -1708,7 +1702,7 @@ window.addEventListener("load", function() {
       var enc=item.querySelector("enclosure"); var img=enc?enc.getAttribute("url"):"";
       if(!img){var m=raw.match(/src=["']([^"']+\.(?:jpg|jpeg|png|webp))/i);if(m)img=m[1];}
       if(!img)img=IMGS[i%IMGS.length];
-      if(isLec(title,desc))out.push({title:title,link:link||BLOG,desc:desc,date:date,img:img,cat:getCat(title,desc)});
+      if(title) out.push({title:title,link:link||BLOG,desc:desc,date:date,img:img,cat:getCat(title,desc)});
     }); return out;
   }
   function card(p,cls){return "<div class='bc "+cls+"'><a href='"+p.link+"' target='_blank' rel='noopener'><img src='"+p.img+"' alt=''><div class='bc-ov'><div class='bc-cat'>"+p.cat+"</div><div class='bc-title'>"+p.title+"</div><div class='bc-meta'>"+p.date+"</div></div></a></div>";}
@@ -1725,8 +1719,8 @@ window.addEventListener("load", function() {
   function fallback(){return [{title:"리더십의 본질: 지시가 아닌 영향력으로 이끌기",link:BLOG,desc:"진정한 리더십은 직위가 아닌 영향력에서 나옵니다.",date:"2025년 2월 10일",img:IMGS[0],cat:"리더십"},{title:"신입사원 교육, 왜 대부분 실패하는가?",link:BLOG,desc:"온보딩 교육의 흔한 함정과 현장 밀착형 입문교육.",date:"2025년 1월 28일",img:IMGS[1],cat:"신입교육"},{title:"조직문화 워크숍 기획의 7가지 원칙",link:BLOG,desc:"단순한 팀빌딩을 넘어 조직 변화를 이끄는 워크숍 설계.",date:"2025년 1월 15일",img:IMGS[2],cat:"워크숍"},{title:"교육 ROI를 3배 높이는 커리큘럼 설계법",link:BLOG,desc:"교육 효과를 데이터로 증명하고 성과로 연결하는 프레임워크.",date:"2024년 12월 20일",img:IMGS[3],cat:"강의"},{title:"MZ세대와 함께하는 강의, 이렇게 달라야 합니다",link:BLOG,desc:"디지털 네이티브 세대의 학습 특성을 이해하고 참여형 강의 설계.",date:"2024년 12월 5일",img:IMGS[4],cat:"강의"}];}
   async function loadRSS(){
     var proxies=["https://api.allorigins.win/get?url="+encodeURIComponent("https://rss.blog.naver.com/jjinimongmong.xml"),"https://corsproxy.io/?"+encodeURIComponent("https://rss.blog.naver.com/jjinimongmong.xml")];
-    for(var i=0;i<proxies.length;i++){try{var res=await fetch(proxies[i],{signal:AbortSignal.timeout(9000)});if(!res.ok)continue;var data=await res.json();var xml=typeof data==="string"?data:(data.contents||"");if(!xml||xml.indexOf("<item>")<0)continue;POSTS=parseXML(xml);if(!POSTS.length)POSTS=fallback();renderPosts("all");return;}catch(e){continue;}}
-    POSTS=fallback();renderPosts("all");
+    for(var i=0;i<proxies.length;i++){try{var res=await fetch(proxies[i],{signal:AbortSignal.timeout(9000)});if(!res.ok)continue;var data=await res.json();var xml=typeof data==="string"?data:(data.contents||"");if(!xml||xml.indexOf("<item>")<0)continue;POSTS=parseXML(xml);if(!POSTS.length)POSTS=[];renderPosts("all");return;}catch(e){continue;}}
+    POSTS=[];renderPosts("all");
   }
   loadRSS();
 });
