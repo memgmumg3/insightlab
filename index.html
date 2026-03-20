@@ -1775,7 +1775,7 @@ window.addEventListener("load", function() {
     {title:"디지털 전환 시대, 강사의 역할은?",link:BLOG,desc:"AI 시대에 교육 강사가 나아가야 할 방향에 대한 고찰",date:"2024년 10월",img:IMGS[5],cat:"강의"}
   ];}
   async function loadRSS(){
-    var proxies=["https://api.allorigins.win/get?url="+encodeURIComponent("https://rss.blog.naver.com/jjinimongmong.xml"),"https://corsproxy.io/?"+encodeURIComponent("https://rss.blog.naver.com/jjinimongmong.xml")];
+    var proxies=["https://api.allorigins.win/get?url="+encodeURIComponent("https://rss.blog.naver.com/insight__lab.xml"),"https://corsproxy.io/?"+encodeURIComponent("https://rss.blog.naver.com/insight__lab.xml")];
     for(var i=0;i<proxies.length;i++){try{var res=await fetch(proxies[i],{signal:AbortSignal.timeout(9000)});if(!res.ok)continue;var data=await res.json();var xml=typeof data==="string"?data:(data.contents||"");if(!xml||xml.indexOf("<item>")<0)continue;POSTS=parseXML(xml);if(!POSTS.length)POSTS=fallback();renderPosts("all");return;}catch(e){continue;}}
     POSTS=fallback();renderPosts("all");
   }
